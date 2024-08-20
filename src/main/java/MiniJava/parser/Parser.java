@@ -9,15 +9,14 @@ import java.util.Stack;
 import MiniJava.Log.Log;
 import MiniJava.codeGenerator.CodeGenerator;
 import MiniJava.errorHandler.ErrorHandler;
-import MiniJava.scanner.lexicalAnalyzer;
+import MiniJava.scanner.LexicalAnalyzer;
 import MiniJava.scanner.token.Token;
 
 public class Parser {
-    private ArrayList<Rule> rules;
-    private Stack<Integer> parsStack;
+    private final ArrayList<Rule> rules;
+    private final Stack<Integer> parsStack;
     private ParseTable parseTable;
-    private lexicalAnalyzer lexicalAnalyzer;
-    private CodeGenerator cg;
+    private final CodeGenerator cg;
 
     public Parser() {
         parsStack = new Stack<Integer>();
@@ -39,7 +38,7 @@ public class Parser {
     }
 
     public void startParse(java.util.Scanner sc) {
-        lexicalAnalyzer = new lexicalAnalyzer(sc);
+        LexicalAnalyzer lexicalAnalyzer = new LexicalAnalyzer(sc);
         Token lookAhead = lexicalAnalyzer.getNextToken();
         boolean finish = false;
         Action currentAction;
