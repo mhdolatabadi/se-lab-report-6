@@ -3,11 +3,11 @@ package MiniJava.scanner;
 import MiniJava.errorHandler.ErrorHandler;
 import MiniJava.scanner.token.Token;
 import MiniJava.scanner.type.Type;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LexicalAnalyzer {
+
     private final Matcher matcher;
 
     public LexicalAnalyzer(java.util.Scanner sc) {

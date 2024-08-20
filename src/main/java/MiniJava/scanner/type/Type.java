@@ -12,7 +12,7 @@ public enum Type {
     ID("[A-Za-z][A-Za-z0-9]*"),
     ErrorID("[0-9]+[A-Za-z]+[A-Za-z0-9]*"),
     NUM("-?[0-9]+"),
-    ARITHMATICOP("[*|+|-]"),
+    ARITHMETIC_OP("[*|+|-]"),
     //WHITESPACES("(\\s)+"),
     COMMA(","),
     RELOP("==|<"),
@@ -33,7 +33,7 @@ public enum Type {
         this.pattern = pattern;
     }
 
-    public Type getTyepFormString(String s) {
+    public Type getTypeFormString(String s) {
         Pattern pattern;
         Matcher matcher;
         for (Type t : values()) {
@@ -43,15 +43,6 @@ public enum Type {
                 return t;
         }
 
-
-//        if (s.equals("class")||s.equals("extends")||s.equals("public")||s.equals("static")||s.equals("void")||s.equals("return")||s.equals("main")||
-//                s.equals("boolean")||s.equals("int")||s.equals("if")||s.equals("else")||s.equals("while")||s.equals("true")||s.equals("false")||s.equals("System.out.println")) {
-//            return KEYWORDS;
-//        }else if(s.equals("")){
-//
-//        }else if(s.equals("")){
-//
-//        }
         throw new IllegalArgumentException();
     }
 }

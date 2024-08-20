@@ -1,10 +1,13 @@
 package MiniJava.parser;
 
+import lombok.Getter;
+
+@Getter
 public class Action {
-    public Act action;
+    private final Act action;
     //if action = shift : number is state
     //if action = reduce : number is number of rule
-    public int number;
+    private final int number;
 
     public Action(Act action, int number) {
         this.action = action;

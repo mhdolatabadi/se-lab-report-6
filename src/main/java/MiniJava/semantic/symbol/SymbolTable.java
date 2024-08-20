@@ -48,14 +48,10 @@ public class SymbolTable {
     }
 
     public void addMethodLocalVariable(String className, String methodName, String localVariableName) {
-//        try {
         if (classes.get(className).methods.get(methodName).localVariable.containsKey(localVariableName)) {
             ErrorHandler.printError("This variable already defined");
         }
         classes.get(className).methods.get(methodName).localVariable.put(localVariableName, new Symbol(lastType, mem.getDateAddress()));
-//        }catch (NullPointerException e){
-//            e.printStackTrace();
-//        }
     }
 
     public void setSuperClass(String superClass, String className) {
@@ -67,13 +63,7 @@ public class SymbolTable {
     }
 
     public Symbol get(String fieldName, String className) {
-//        try {
         return classes.get(className).getField(fieldName);
-//        }catch (NullPointerException n)
-//        {
-//            n.printStackTrace();
-//            return null;
-//        }
     }
 
     public Symbol get(String className, String methodName, String variable) {
@@ -87,12 +77,7 @@ public class SymbolTable {
     }
 
     public void startCall(String className, String methodName) {
-//        try {
         classes.get(className).methods.get(methodName).reset();
-//        }catch (NullPointerException n)
-//        {
-//            n.printStackTrace();
-//        }
     }
 
     public int getMethodCallerAddress(String className, String methodName) {
@@ -104,13 +89,7 @@ public class SymbolTable {
     }
 
     public SymbolType getMethodReturnType(String className, String methodName) {
-//        try {
         return classes.get(className).methods.get(methodName).returnType;
-//        }catch (NullPointerException ed){
-//            ed.printStackTrace();
-//            return null;
-//        }
-
     }
 
     public int getMethodAddress(String className, String methodName) {
@@ -139,9 +118,9 @@ public class SymbolTable {
     }
 
     class Method {
-        public int codeAddress;
-        public Map<String, Symbol> parameters;
-        public Map<String, Symbol> localVariable;
+        private final int codeAddress;
+        private final Map<String, Symbol> parameters;
+        private final Map<String, Symbol> localVariable;
         private final ArrayList<String> orderedParameters;
         public int callerAddress;
         public int returnAddress;

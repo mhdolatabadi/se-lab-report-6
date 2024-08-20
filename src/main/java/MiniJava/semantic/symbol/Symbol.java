@@ -1,15 +1,12 @@
 package MiniJava.semantic.symbol;
 
+import lombok.Getter;
+
 /**
  * Created by mohammad hosein on 6/28/2015.
  */
 
-public class Symbol {
-    public SymbolType type;
-    public int address;
+@Getter
+public record Symbol(SymbolType type, int address) {
 
-    public Symbol(SymbolType type, int address) {
-        this.type = type;
-        this.address = address;
-    }
 }

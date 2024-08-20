@@ -1,11 +1,13 @@
 package MiniJava.parser;
 
 import MiniJava.scanner.token.Token;
+import lombok.Getter;
 
+@Getter
 public class GrammarSymbol {
-    public boolean isTerminal;
-    public NonTerminal nonTerminal;
-    public Token terminal;
+    private final boolean isTerminal;
+    private NonTerminal nonTerminal;
+    private Token terminal;
 
     public GrammarSymbol(NonTerminal nonTerminal) {
         this.nonTerminal = nonTerminal;
@@ -16,4 +18,5 @@ public class GrammarSymbol {
         this.terminal = terminal;
         isTerminal = true;
     }
+
 }

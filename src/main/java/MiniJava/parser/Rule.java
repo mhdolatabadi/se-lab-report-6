@@ -3,12 +3,18 @@ package MiniJava.parser;
 import MiniJava.scanner.token.Token;
 
 import java.util.ArrayList;
+import lombok.Getter;
 
 /**
  * Created by mohammad hosein on 6/25/2015.
  */
 
+@Getter
 public class Rule {
+    private final NonTerminal LHS;
+    private final ArrayList<GrammarSymbol> RHS;
+    private int semanticAction;
+
     public Rule(String stringRule) {
         int index = stringRule.indexOf("#");
         if (index != -1) {
@@ -22,31 +28,19 @@ public class Rule {
             semanticAction = 0;
         }
         String[] splited = stringRule.split("->");
-//        try {
         LHS = NonTerminal.valueOf(splited[0]);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-        RHS = new ArrayList<GrammarSymbol>();
+        RHS = new ArrayList<>();
         if (splited.length > 1) {
             String[] RHSs = splited[1].split(" ");
             for (String s : RHSs) {
                 try {
                     RHS.add(new GrammarSymbol(NonTerminal.valueOf(s)));
                 } catch (Exception e) {
-//                    try{
                     RHS.add(new GrammarSymbol(new Token(Token.getTyepFormString(s), s)));
-//                    }catch (IllegalArgumentException d){
-//                        d.printStackTrace();
-//                        Log.print(s);
-//                    }
                 }
             }
         }
     }
 
-    public NonTerminal LHS;
-    public ArrayList<GrammarSymbol> RHS;
-    public int semanticAction;
 }
 

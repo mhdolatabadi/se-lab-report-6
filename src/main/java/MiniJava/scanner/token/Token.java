@@ -6,8 +6,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Token {
-    public Type type;
-    public String value;
+    private final Type type;
+    private final String value;
 
     public Token(Type type, String value) {
         this.type = type;
@@ -21,8 +21,7 @@ public class Token {
 
     @Override
     public boolean equals(Object o) {
-        if (o instanceof Token) {
-            Token temp = (Token) o;
+        if (o instanceof Token temp) {
             if (temp.type == this.type) {
                 return this.type != Type.KEYWORDS || this.value.equals(temp.value);
             }
@@ -50,14 +49,6 @@ public class Token {
             if (matcher.matches()) return t;
         }
 
-//        if (s.equals("class")||s.equals("extends")||s.equals("public")||s.equals("static")||s.equals("void")||s.equals("return")||s.equals("main")||
-//                s.equals("boolean")||s.equals("int")||s.equals("if")||s.equals("else")||s.equals("while")||s.equals("true")||s.equals("false")||s.equals("System.out.println")) {
-//            return KEYWORDS;
-//        }else if(s.equals("")){
-//
-//        }else if(s.equals("")){
-//
-//        }
         throw new IllegalArgumentException();
     }
 }
