@@ -11,11 +11,11 @@ public class LexicalAnalyzer {
     private final Matcher matcher;
 
     public LexicalAnalyzer(java.util.Scanner sc) {
-        StringBuilder input = new StringBuilder();
+        var input = new StringBuilder();
         while (sc.hasNext()) {
             input.append(sc.nextLine());
         }
-        StringBuilder tokenPattern = new StringBuilder();
+        var tokenPattern = new StringBuilder();
         for (Type tokenType : Type.values())
             tokenPattern.append(String.format("|(?<%s>%s)", tokenType.name(), tokenType.pattern));
         Pattern expression = Pattern.compile(tokenPattern.substring(1));
@@ -39,8 +39,10 @@ public class LexicalAnalyzer {
 
                     return new Token(t, matcher.group(t.name()));
                 }
+
             }
         }
+
         return new Token(Type.EOF, "$");
     }
 }

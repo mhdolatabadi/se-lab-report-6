@@ -5,7 +5,6 @@ import MiniJava.codeGenerator.Memory;
 import MiniJava.codeGenerator.TypeAddress;
 import MiniJava.codeGenerator.VarType;
 import MiniJava.errorHandler.ErrorHandler;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
